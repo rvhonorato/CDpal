@@ -30,6 +30,7 @@
 #define CDPAL_H
 
 #include <QMainWindow>
+#include <functional>
 #include <iostream>
 #include <fstream>
 #include "cstdlib"
@@ -48,8 +49,9 @@
 #include "fitdiff.h"
 #include "simulatedialog.h"
 
-namespace Ui {
-class CDpal;
+namespace Ui
+{
+    class CDpal;
 }
 
 class CDpal : public QMainWindow
@@ -59,7 +61,8 @@ class CDpal : public QMainWindow
 public:
     explicit CDpal(QWidget *parent = 0);
     ~CDpal();
-    struct style{
+    struct style
+    {
         QPen pen;
         QCPScatterStyle ornament;
     };
@@ -76,22 +79,22 @@ public slots:
     void changeDiffMode(bool startup);
     void Autofit();
     void AutofitAll();
-    void AutofitTm(std::vector< double > xV, std::vector< double > yV);
-    void Autofit2Tm(std::vector< double > xV, std::vector< double > yV);
+    void AutofitTm(std::vector<double> xV, std::vector<double> yV);
+    void Autofit2Tm(std::vector<double> xV, std::vector<double> yV);
     void AutofitDeltaCp();
     void AutofitDeltaH();
     void Autofit2DeltaCp();
     void Autofit2DeltaH();
     void Autofitm();
     void Autofit2m();
-    void AutofitRegion(int state, int len, std::vector< double > x, std::vector< double > y);
-    void Autofit2Region(int state, int len, std::vector< double > x, std::vector< double > y);
+    void AutofitRegion(int state, int len, std::vector<double> x, std::vector<double> y);
+    void Autofit2Region(int state, int len, std::vector<double> x, std::vector<double> y);
     void autoScale();
     void axisLabelDoubleClick(QCPAxis *axis, QCPAxis::SelectablePart part);
     QString calcSG(int model, int mode, double x, double y, double x2, double y2);
     QString calcdSdG(int model, int submodel, int submodel2, int mode, double x, double y, double x2, double y2, double dx, double dy, double dx2, double dy2);
     void changeOrnament();
-    QString checkCustomFormat(std::string f, int h, int c, int t, int sr, int pb,QString text);
+    QString checkCustomFormat(std::string f, int h, int c, int t, int sr, int pb, QString text);
     QString checkFormat(std::string f);
     QPen changePen(QPen pen, int i);
     void changeWidth();
@@ -138,7 +141,7 @@ public slots:
     void removeHighlight();
     void removeSelectedGraph();
     void deleteLastDataset();
-    void renderGraph(std::vector< std::vector<std::string> > dataVec, int mode, int graphNo);
+    void renderGraph(std::vector<std::vector<std::string>> dataVec, int mode, int graphNo);
     void saveProject();
     void saveResults();
     void saveStyle();
@@ -147,7 +150,7 @@ public slots:
     void setupChemicalGUI();
     void setupLabels();
     void setupDiffLabels();
-    void titleDoubleClick(QMouseEvent* event, QCPPlotTitle* title);
+    void titleDoubleClick(QMouseEvent *event, QCPPlotTitle *title);
     void toggleDW();
     void toggleDW2();
     void updateTable(int graphNo);
